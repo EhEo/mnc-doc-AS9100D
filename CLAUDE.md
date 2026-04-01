@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**(주)에이로텍 AS9100D Rev D 인증 준비 프로젝트** - 중소 항공우주 제조기업의 AS9100D 신규 인증 취득을 위한 문서 관리 저장소. 기준일 2026-03-24, 목표 인증 완료 2026년 9월 중순.
+**M&C AS9100D Rev D 인증 준비 프로젝트** - 중소 항공우주 제조기업의 AS9100D 신규 인증 취득을 위한 문서 관리 저장소. 기준일 2026-03-24, 목표 인증 완료 2026년 9월 중순.
 
 - **인증 규격**: AS9100D Rev D (항공우주 품질경영시스템, ISO 9001 기반 확장)
-- **회사**: (주)에이로텍 (베트남 사업장 운영)
+- **회사**: M&C (베트남 사업장 운영)
 - **크리티컬 패스**: 갭분석 → 문서화(9주) → 내부심사 → 경영검토 → Stage 1 → Stage 2 → 인증서 발급
 
 ## Repository Structure

@@ -682,4 +682,4 @@ OEM/OCM 인가 유통업체가 아닌 공급원(Independent Distributor, Broker 
 
 ---
 
-> **문서 끝** | QP-809 Rev. 0 | (주)에이로텍 / M&C Electronics VINA
+> **문서 끝** | QP-809 Rev. 0 | M&C / M&C Electronics VINA
