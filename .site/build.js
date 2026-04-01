@@ -251,7 +251,8 @@ function generateHTML(dataJson, grouped, recentFiles) {
     for (const doc of docs) {
       const riskClass = doc.risk === '고위험' ? 'risk-high' : doc.risk === '중위험' ? 'risk-medium' : doc.risk === '저위험' ? 'risk-low' : '';
       const riskBadge = doc.risk !== '일반' ? `<span class="risk-badge ${riskClass}">${doc.risk.charAt(0)}</span>` : '';
-      const docLabel = doc.docNumber ? `${doc.docNumber}` : doc.title.substring(0, 20);
+      const shortTitle = doc.title.length > 30 ? doc.title.substring(0, 30) + '...' : doc.title;
+      const docLabel = doc.docNumber ? `${doc.docNumber} ${shortTitle}` : shortTitle;
       sidebarHtml += `<li class="sidebar-item" data-path="${escapeHtml(doc.path)}" data-risk="${doc.risk}" onclick="loadDoc('${escapeHtml(doc.path)}')">${riskBadge}<span class="sidebar-item-text">${escapeHtml(docLabel)}</span></li>`;
     }
 
