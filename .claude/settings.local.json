@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"C:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/Refer \\(cũ tham khảo\\)_ Không được xóa/\")",
+      "Bash(ls 'C:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/42.Intial samples inspection \\(or FAI\\)/')",
+      "Bash(grep -i \"본사\\\\|사업장\\\\|Vietnam\\\\|베트남\\\\|직원\\\\|인원\\\\|scope\\\\|범위\" /c/Users/MISTOP/Documents/mnc-doc-AS9100D/03_실행계획/*.md)",
+      "Bash(grep -E \"\\\\.\\(doc|xls|xlsx\\)$\")",
+      "Bash(find C:UsersMISTOPDocumentsmnc-doc-AS9100D -type d -name *ISO* -o -type d -name *IATF*)",
+      "Bash(ls -d \"C:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/\"[0-9]*)",
+      "Bash(ls -d C:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/[0-9]*)",
+      "Bash(ls -d [0-9]*)",
+      "Bash(find:*)",
+      "Bash(ls \"c:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/42.Intial samples inspection \\(or FAI\\)/\")"
+    ]
+  }
+}
