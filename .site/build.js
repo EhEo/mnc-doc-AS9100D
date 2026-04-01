@@ -100,6 +100,9 @@ function extractMeta(relPath, filename, content, riskLookup) {
   } else if (relPath.includes('3계층_지침서') || filename.startsWith('WI-')) {
     meta.layer = '3계층';
     meta.category = '지침서';
+  } else if (relPath.includes('3계층_양식기록') || filename.startsWith('F-')) {
+    meta.layer = '3계층_양식';
+    meta.category = '양식기록';
   } else if (relPath.includes('03_실행계획')) {
     meta.layer = '실행계획';
     meta.category = '실행계획';
@@ -220,12 +223,13 @@ console.log('3. 빌드 완료!');
 console.log(`   파일 열기: start ${outPath}`);
 
 function generateHTML(dataJson, grouped, recentFiles) {
-  const layerOrder = ['품질매뉴얼', '1계층', '2계층', '3계층', '마스터일정', '문서관리', '실행계획', '대시보드', '기타'];
+  const layerOrder = ['품질매뉴얼', '1계층', '2계층', '3계층', '3계층_양식', '마스터일정', '문서관리', '실행계획', '대시보드', '기타'];
   const layerLabels = {
     '품질매뉴얼': '1계층: 품질매뉴얼',
     '1계층': '1계층: 품질매뉴얼',
     '2계층': '2계층: 절차서',
     '3계층': '3계층: 지침서',
+    '3계층_양식': '3계층: 양식기록',
     '마스터일정': '마스터일정',
     '문서관리': '문서관리',
     '실행계획': '실행계획',
