@@ -240,9 +240,6 @@ function generateHTML(dataJson, grouped, recentFiles) {
   // Build sidebar HTML
   let sidebarHtml = '';
 
-  // Recent updates section
-  sidebarHtml += `<div class="sidebar-section"><div class="sidebar-section-title clickable" onclick="showRecent()">최근 수정 (${recentFiles.length}건)</div></div>`;
-
   for (const layerKey of layerOrder) {
     const docs = grouped[layerKey];
     if (!docs || docs.length === 0) continue;
