@@ -10,7 +10,11 @@
       "Bash(ls -d C:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/[0-9]*)",
       "Bash(ls -d [0-9]*)",
       "Bash(find:*)",
-      "Bash(ls \"c:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/42.Intial samples inspection \\(or FAI\\)/\")"
+      "Bash(ls \"c:/Users/MISTOP/Documents/mnc-doc-AS9100D/ISO. IATF 문서/42.Intial samples inspection \\(or FAI\\)/\")",
+      "Bash(sed 's/.*\\\\.//')",
+      "Bash(grep -v \"~\\\\$\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"scripts\\\\Extract-DocxText.ps1\")",
+      "Bash(powershell -ExecutionPolicy Bypass -Command \"& '.\\\\scripts\\\\Extract-DocxText.ps1' -SourcePath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\ISO. IATF 문서' -OutputPath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\scripts\\\\extracted_text'\")"
     ]
   }
 }
