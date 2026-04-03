@@ -272,10 +272,11 @@ function generateHTML(dataJson, grouped, recentFiles) {
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"><\/script>
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"><\/script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"><\/script>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -602,7 +603,7 @@ body {
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 13px;
-  font-family: 'Nanum Gothic Coding', 'D2Coding', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 .markdown-body pre {
   background: var(--code-bg);
@@ -834,10 +835,16 @@ function loadDoc(docPath) {
 
   main.innerHTML = html;
 
-  // Highlight code blocks
+  // Highlight code blocks (non-mermaid)
   main.querySelectorAll('pre code').forEach(block => {
     hljs.highlightElement(block);
   });
+
+  // Render Mermaid diagrams
+  const mermaidNodes = main.querySelectorAll('.mermaid');
+  if (mermaidNodes.length > 0) {
+    mermaid.run({ nodes: mermaidNodes });
+  }
 
   // Scroll to top
   main.scrollTop = 0;
@@ -946,6 +953,19 @@ function scrollToTop() {
 document.getElementById('mainContent').addEventListener('scroll', function() {
   const btn = document.getElementById('backToTop');
   btn.classList.toggle('show', this.scrollTop > 300);
+});
+
+// Mermaid setup
+mermaid.initialize({ startOnLoad: false, theme: 'default', securityLevel: 'loose' });
+marked.use({
+  renderer: {
+    code({ text, lang }) {
+      if (lang === 'mermaid') {
+        return '<div class="mermaid">' + text + '</div>';
+      }
+      return false;
+    }
+  }
 });
 </script>
 
