@@ -18,3 +18,9 @@ __pycache__/
 
 # Node (if tooling is added later)
 node_modules/
+
+# 변환 전 원본 백업 (대용량 바이너리)
+ISO. IATF 문서/_backup_originals/
+
+# 텍스트 추출 임시 파일
+scripts/extracted_text/
