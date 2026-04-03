@@ -24,3 +24,6 @@ ISO. IATF 문서/_backup_originals/
 
 # 텍스트 추출 임시 파일
 scripts/extracted_text/
+
+# 변환 스크립트 로그
+scripts/convert_log_*.txt
