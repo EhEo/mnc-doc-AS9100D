@@ -223,6 +223,9 @@ console.log('3. 빌드 완료!');
 console.log(`   파일 열기: start ${outPath}`);
 
 function generateHTML(dataJson, grouped, recentFiles) {
+  const latestMs = docData.length > 0 ? Math.max(...docData.map(d => d.modified)) : Date.now();
+  const latestDateStr = formatDate(new Date(latestMs)).substring(0, 10);
+
   const layerOrder = ['품질매뉴얼', '1계층', '2계층', '3계층', '3계층_양식', '마스터일정', '문서관리', '실행계획', '대시보드', '기타'];
   const layerLabels = {
     '품질매뉴얼': '1계층: 품질매뉴얼',
@@ -723,7 +726,7 @@ body {
   <h1>AS9100D 인증 준비 문서 뷰어</h1>
   <span class="subtitle">M&C Electronics VINA</span>
   <div class="spacer"></div>
-  <span class="info">기준일: 2026-04-01 | 문서 ${docData.length}건</span>
+  <span class="info">최종수정일: ${latestDateStr} | 문서 ${docData.length}건</span>
 </div>
 
 <div class="layout">
