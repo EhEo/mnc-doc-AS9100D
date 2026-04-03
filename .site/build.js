@@ -272,7 +272,7 @@ function generateHTML(dataJson, grouped, recentFiles) {
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"><\/script>
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/highlight.min.js"><\/script>
@@ -602,7 +602,7 @@ body {
   padding: 2px 6px;
   border-radius: 3px;
   font-size: 13px;
-  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-family: 'Nanum Gothic Coding', 'D2Coding', 'Consolas', 'Monaco', 'Courier New', monospace;
 }
 .markdown-body pre {
   background: var(--code-bg);
