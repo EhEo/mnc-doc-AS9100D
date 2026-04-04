@@ -14,7 +14,10 @@
       "Bash(sed 's/.*\\\\.//')",
       "Bash(grep -v \"~\\\\$\")",
       "Bash(powershell -ExecutionPolicy Bypass -File \"scripts\\\\Extract-DocxText.ps1\")",
-      "Bash(powershell -ExecutionPolicy Bypass -Command \"& '.\\\\scripts\\\\Extract-DocxText.ps1' -SourcePath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\ISO. IATF 문서' -OutputPath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\scripts\\\\extracted_text'\")"
+      "Bash(powershell -ExecutionPolicy Bypass -Command \"& '.\\\\scripts\\\\Extract-DocxText.ps1' -SourcePath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\ISO. IATF 문서' -OutputPath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\scripts\\\\extracted_text'\")",
+      "Bash(\" \"c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\05_산출물\" --include=\"*.md\" -l | head -5)",
+      "Bash(grep -r \"```\" \"c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\05_산출물\" --include=\"*.md\" -l | head -5)",
+      "Bash(node .site/build.js)"
     ]
   }
 }
