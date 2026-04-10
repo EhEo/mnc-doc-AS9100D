@@ -1,0 +1,12 @@
+{
+  "name": "mnc-doc-converter",
+  "version": "1.0.0",
+  "description": "M&C AS9100D 문서 변환 도구 (MD → DOCX)",
+  "scripts": {
+    "setup": "node setup.js",
+    "convert": "node convert.js"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}

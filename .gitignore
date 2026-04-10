@@ -19,7 +19,8 @@ __pycache__/
 # Node (if tooling is added later)
 node_modules/
 
-# 변환 전 원본 백업 (대용량 바이너리)
+# 대용량 바이너리 (GitHub 100MB 제한 초과)
+*.zip
 ISO. IATF 문서/_backup_originals/
 
 # 텍스트 추출 임시 파일

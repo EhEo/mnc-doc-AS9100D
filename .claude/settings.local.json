@@ -17,7 +17,23 @@
       "Bash(powershell -ExecutionPolicy Bypass -Command \"& '.\\\\scripts\\\\Extract-DocxText.ps1' -SourcePath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\ISO. IATF 문서' -OutputPath 'c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\scripts\\\\extracted_text'\")",
       "Bash(\" \"c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\05_산출물\" --include=\"*.md\" -l | head -5)",
       "Bash(grep -r \"```\" \"c:\\\\Users\\\\MISTOP\\\\Documents\\\\mnc-doc-AS9100D\\\\05_산출물\" --include=\"*.md\" -l | head -5)",
-      "Bash(node .site/build.js)"
+      "Bash(node .site/build.js)",
+      "Bash(pandoc --version)",
+      "Bash(pip --version)",
+      "Bash(winget --version)",
+      "Bash(choco --version)",
+      "Bash(scoop --version)",
+      "Bash(npm --version)",
+      "Bash(winget install:*)",
+      "Bash(cmd.exe /c \"pandoc --version\")",
+      "Bash(cmd.exe:*)",
+      "Bash(powershell.exe -Command \"pandoc --version\")",
+      "Bash(powershell.exe:*)",
+      "Bash(npm install:*)",
+      "Bash(node setup.js)",
+      "Bash(node convert.js)",
+      "Bash(del \"06_산출물_문서\\\\1계층_품질매뉴얼\\\\QM-001_품질매뉴얼_AS9100D.docx\")",
+      "Bash(node -e ':*)"
     ]
   }
 }
