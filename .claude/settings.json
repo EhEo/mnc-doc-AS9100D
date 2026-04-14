@@ -3,6 +3,9 @@
     "allow": [
       "Skill(commit-commands:commit-push-pr)",
       "Skill(commit-commands:commit-push-pr:*)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\MISTOP\\Documents\\02_AI디지털전환\\AS9100D문서관리\\05_산출물_vn"
     ]
   }
 }
