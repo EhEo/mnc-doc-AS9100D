@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 /
 ├── 01_마스터일정/          # 인증 전체 타임라인, 마일스톤, Gantt 차트
 │   └── AS9100D_마스터일정.md
-├── 02_문서관리/            # Document Master List - 67건 전체 문서 현황 추적
+├── 02_문서관리/            # Document Master List - 76건 전체 문서 현황 추적
 │   └── Document_Master_List.md   # 1~3계층 문서(매뉴얼/절차서/지침서/양식) 상태 관리
 ├── 03_실행계획/            # 실행팀 산출물
 │   ├── CAR_목록_시정조치계획.md      # 17건 CAR (Major 11, Minor 4, OFI 2)
@@ -25,6 +25,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 │   └── 인증심사_대응_체크리스트.md   # Stage 1/2 심사 대응 준비
 ├── 04_대시보드/            # 통합 진행 현황, 크리티컬 패스, 정합성 확인
 │   └── AS9100D_마스터_대시보드.md
+├── 05_산출물/              # AS9100D 산출 문서 (한국어, Markdown)
+│   ├── 1계층_품질매뉴얼/   # QM-001 (1건)
+│   ├── 2계층_절차서/       # QP-xxx (39건)
+│   ├── 3계층_지침서/       # WI-xxx (15건)
+│   └── 3계층_양식기록/     # F-xxx (21건)
+├── 05_산출물_vn/           # AS9100D 산출 문서 번역본 (베트남어, Markdown) — 76건
+│   ├── Tang1_So_Tay_Chat_Luong/
+│   ├── Tang2_Quy_Trinh/
+│   ├── Tang3_Huong_Dan/
+│   └── Tang3_Bieu_Mau/
+├── docs/                   # 한국어 문서 웹 뷰어 (GitHub Pages)
+│   └── index.html          # 05_산출물/ 전체 내장, 검색·필터·사이드바
+├── docs_vn/                # 베트남어 문서 웹 뷰어 (GitHub Pages)
+│   └── index.html          # 05_산출물_vn/ 전체 내장, 동일 UI
+├── scripts/                # 유틸리티 스크립트
+│   ├── gen_docs_vn.js      # docs_vn/index.html 재생성 스크립트
+│   └── add_search_snippet.js  # 검색 스니펫 패치 스크립트
 └── ISO. IATF 문서/         # 기존 ISO 9001/IATF 문서 원본 (베트남어, doc/xls/pdf)
     ├── 1~46번 폴더/        # 절차별 기존 문서
     └── Refer/              # 참조용 구 문서
@@ -85,5 +102,34 @@ AS9100D_마스터_대시보드.md (전체 현황 집계)
 
 ### 다국어 환경
 - 관리 문서(01~04): 한국어
+- 산출 문서(05_산출물/): 한국어 Markdown
+- 베트남어 번역본(05_산출물_vn/): 베트남어 Markdown (76건 완비)
 - 기존 절차 문서(ISO. IATF 문서/): 베트남어 + 일부 영어
 - 파일명에 한국어/베트남어/영어 혼용 - 경로 처리 시 유니코드 주의
+
+## Web Viewer (docs/ & docs_vn/)
+
+### 개요
+
+- `docs/index.html`: 한국어 산출 문서 뷰어 (GitHub Pages 배포)
+- `docs_vn/index.html`: 베트남어 산출 문서 뷰어 (GitHub Pages 배포)
+- 백엔드 없이 모든 문서 내용을 JavaScript `docs` 배열에 내장(embed)하여 정적 파일로 동작
+
+### 주요 기능
+
+- **사이드바 네비게이션**: 계층별 섹션(토글 가능), 문서번호 순 정렬
+- **위험등급 필터**: 전체 / 고위험 / 중위험 / 저위험
+- **전문 검색**: 제목·문서번호·본문 내용 통합 검색
+  - 제목에 없고 **본문에서만 매칭**되는 경우 → 사이드바에 스니펫 미리보기 + 노란 하이라이트 표시
+- **Markdown 렌더링**: marked.js, 코드 하이라이팅(highlight.js), Mermaid 다이어그램
+- **다크 배경 헤더**, 반응형 레이아웃
+
+### 뷰어 재생성 방법
+
+`05_산출물_vn/` 문서 추가/수정 후 베트남어 뷰어를 재생성할 때:
+
+```bash
+node scripts/gen_docs_vn.js
+```
+
+한국어 뷰어(`docs/index.html`)는 별도 생성 스크립트 없이 직접 편집.
