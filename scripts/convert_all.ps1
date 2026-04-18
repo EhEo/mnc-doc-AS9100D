@@ -1,5 +1,6 @@
 ﻿# convert_all.ps1 - AS9100 컨설팅 자료 구형 Office 포맷 일괄 변환
 # .doc -> .docx / .xls -> .xlsx / .ppt -> .pptx
+# 핵심: -Filter 대신 $_.Extension -eq 로 정확히 비교 (Windows 8.3 버그 방지)
 # 원본 파일은 삭제하지 않음 / 이미 변환된 파일은 건너뜀
 
 $targetFolder = "C:\Users\MISTOP\Documents\02_AI디지털전환\AS9100D문서관리\AS9100 컨설팅 자료"
@@ -8,8 +9,7 @@ $logPath = "C:\Users\MISTOP\Documents\02_AI디지털전환\AS9100D문서관리\s
 $successCount = 0
 $skipCount = 0
 $failCount = 0
-$logEntries = @()
-$logEntries += "시각,파일명,원본포맷,결과,크기(KB),비고"
+$logEntries = @("시각,파일명,원본포맷,결과,크기(KB),비고")
 
 function Write-Log($fileName, $srcExt, $result, $sizeKB, $note) {
     $time = Get-Date -Format "HH:mm:ss"
@@ -17,8 +17,8 @@ function Write-Log($fileName, $srcExt, $result, $sizeKB, $note) {
 }
 
 # ===================== PowerPoint: ppt -> pptx =====================
-$pptFiles = Get-ChildItem -Path $targetFolder -Recurse -Filter "*.ppt" |
-    Where-Object { $_.Name -notlike "~$*" }
+$pptFiles = Get-ChildItem -Path $targetFolder -Recurse |
+    Where-Object { $_.Extension -eq ".ppt" -and $_.Name -notlike "~`$*" }
 
 Write-Host ""
 Write-Host "====== PPT 변환 시작 ($($pptFiles.Count)건) ======" -ForegroundColor Cyan
@@ -59,8 +59,8 @@ if ($pptFiles.Count -gt 0) {
 }
 
 # ===================== Word: doc -> docx =====================
-$docFiles = Get-ChildItem -Path $targetFolder -Recurse -Filter "*.doc" |
-    Where-Object { $_.Name -notlike "~$*" }
+$docFiles = Get-ChildItem -Path $targetFolder -Recurse |
+    Where-Object { $_.Extension -eq ".doc" -and $_.Name -notlike "~`$*" }
 
 Write-Host ""
 Write-Host "====== DOC 변환 시작 ($($docFiles.Count)건) ======" -ForegroundColor Cyan
@@ -102,8 +102,8 @@ if ($docFiles.Count -gt 0) {
 }
 
 # ===================== Excel: xls -> xlsx =====================
-$xlsFiles = Get-ChildItem -Path $targetFolder -Recurse -Filter "*.xls" |
-    Where-Object { $_.Name -notlike "~$*" }
+$xlsFiles = Get-ChildItem -Path $targetFolder -Recurse |
+    Where-Object { $_.Extension -eq ".xls" -and $_.Name -notlike "~`$*" }
 
 Write-Host ""
 Write-Host "====== XLS 변환 시작 ($($xlsFiles.Count)건) ======" -ForegroundColor Cyan
@@ -154,5 +154,5 @@ Write-Host "변환 완료" -ForegroundColor Yellow
 Write-Host ("  성공: $successCount 건") -ForegroundColor Green
 Write-Host ("  건너뜀(이미 변환됨): $skipCount 건") -ForegroundColor DarkGray
 Write-Host ("  실패: $failCount 건") -ForegroundColor $(if ($failCount -gt 0) { "Red" } else { "Green" })
-Write-Host ("  로그 저장: $logPath") -ForegroundColor Yellow
+Write-Host ("  로그: $logPath") -ForegroundColor Yellow
 Write-Host "원본 파일은 그대로 보존되었습니다." -ForegroundColor Yellow

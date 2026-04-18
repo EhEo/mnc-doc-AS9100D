@@ -7,15 +7,17 @@ $deletedCount = 0
 $skippedCount = 0
 
 function Remove-IfConverted($ext, $newExt) {
-    $files = Get-ChildItem -Path $targetFolder -Recurse -Filter "*$ext" |
-        Where-Object { $_.Name -notlike "~$*" }
+    # -Filter 대신 $_.Extension -eq 로 정확히 비교 (Windows 8.3 버그 방지)
+    $files = Get-ChildItem -Path $targetFolder -Recurse |
+        Where-Object { $_.Extension -eq $ext -and $_.Name -notlike "~`$*" }
 
     Write-Host ""
     Write-Host "====== $ext 원본 삭제 ($($files.Count)건 검사) ======" -ForegroundColor Cyan
 
     foreach ($file in $files) {
         $newPath = [System.IO.Path]::ChangeExtension($file.FullName, $newExt)
-        if (Test-Path $newPath) {
+        # 이중 확인: 신형 파일 존재 AND 현재 파일이 구형 확장자인지 검증
+        if ((Test-Path $newPath) -and ($file.Extension -eq $ext)) {
             Remove-Item $file.FullName -Force
             Write-Host ("  [삭제] " + $file.Name) -ForegroundColor DarkGray
             $script:deletedCount++
