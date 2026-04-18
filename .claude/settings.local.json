@@ -33,7 +33,11 @@
       "Bash(node setup.js)",
       "Bash(node convert.js)",
       "Bash(del \"06_산출물_문서\\\\1계층_품질매뉴얼\\\\QM-001_품질매뉴얼_AS9100D.docx\")",
-      "Bash(node -e ':*)"
+      "Bash(node -e ':*)",
+      "Bash(grep -E \"\\\\.\\(doc|ppt|xls\\)$\")",
+      "Bash(where soffice *)",
+      "Bash(grep -v \"/~\\\\$\")",
+      "Bash(node -e ' *)"
     ]
   }
 }
